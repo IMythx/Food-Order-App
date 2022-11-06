@@ -35,7 +35,9 @@ const HeaderCartButton = () => {
         <CartIcon />
       </span>
       <span>Your Cart</span>
-      <span className={classes.badge}>{totalAmount}</span>
+      <span className={classes.badge} data-testid="badge">
+        {totalAmount}
+      </span>
     </button>
   );
 };

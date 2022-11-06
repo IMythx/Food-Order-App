@@ -2,7 +2,6 @@ import { useRef } from "react";
 import classes from "./Checkout.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import sendCheckoutRequest from "../../store/checkout-actions";
-import { uiActions } from "../../store/ui-slice";
 import { cartActions } from "../../store/cart-slice";
 const Checkout = () => {
   const nameInputRef = useRef();
@@ -14,7 +13,6 @@ const Checkout = () => {
   const orderedItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const onClickHandler = () => {
-    dispatch(uiActions.hideCart());
     dispatch(cartActions.checkOut());
   };
 
@@ -45,7 +43,11 @@ const Checkout = () => {
   }`;
 
   return (
-    <form className={classes.form} onSubmit={confirmHandler}>
+    <form
+      className={classes.form}
+      onSubmit={confirmHandler}
+      title="checkoutForm"
+    >
       <div className={nameControlClasses}>
         <label htmlFor="name">Your Name</label>
         <input type="text" id="name" ref={nameInputRef} />

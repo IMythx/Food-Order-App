@@ -12,8 +12,12 @@ const Backdrop = () => {
   return <div className={classes.backdrop} onClick={onClickHandler} />;
 };
 const ModalOverlay = (props) => {
+  const checkOut = useSelector((state) => state.cart.isCheckOut);
   return (
-    <div className={classes.modal}>
+    <div
+      className={`${classes.modal} ${checkOut && classes.expand}`}
+      title="modal"
+    >
       <div className={classes.content}>{props.children}</div>
     </div>
   );

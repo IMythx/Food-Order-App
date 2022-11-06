@@ -42,7 +42,6 @@ const Cart = () => {
   );
   const cartModalContent = (
     <Fragment>
-      {" "}
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
